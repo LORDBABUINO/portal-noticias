@@ -10,6 +10,8 @@ services:
     ports:
       - "80:3000"
       - "9229:9229"
+    volumes:
+        - ./web:/home/app
   db:
     image: mysql
     container_name: node_mysql
@@ -17,4 +19,4 @@ services:
     env_file:
       .env
     volumes:
-      - ./tmp/db:/var/lib/mysql
+      - ./db:/var/lib/mysql
