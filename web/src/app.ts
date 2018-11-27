@@ -1,19 +1,11 @@
-let app = require('express')()
+import { app } from './config/server'
+import { routeHome } from './app/routes/home'
+import { routeFormAddNews } from './app/routes/form_add_news'
+import { routeNews } from './app/routes/news'
 
-app.set('view engine', 'ejs')
-app.set('views','src/views');
-
-app.get('/', (req: any, res: any) => {
-	res.render('home/index')
-})
-
-app.get('/formulario_inclusao_noticia', (req: any, res: any) => {
-	res.render('admin/form_add_noticia')
-})
-
-app.get('/noticias', (req: any, res: any) => {
-	res.render('noticias/noticias')
-})
+routeHome(app)
+routeFormAddNews(app)
+routeNews(app)
 
 app.listen(3000, () => {
 	console.log('Servidor rodando com Express')
