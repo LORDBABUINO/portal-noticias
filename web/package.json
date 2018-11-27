@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently -k \"npm run build:watch\" \"npm run start:dev\" \"npm run sync\"",
     "start": "node /dist/app.js",
-    "sync": "browser-sync start --proxy 'localhost:3000' -f 'dist/**/*' 'src/views/**/*' --port 5000 -b 'firefox' --reload-debounce 1000 --no-open",
+    "sync": "browser-sync start -c bs-config.js",
     "start:dev": "nodemon dist/app.js",
     "build": "tsc .",
     "build:watch": "tsc -w",
