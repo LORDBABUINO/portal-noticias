@@ -4,9 +4,10 @@
   "description": "",
   "main": "noticias.js",
   "scripts": {
-    "dev": "concurrently -k \"npm run build:watch\" \"npm run start:dev\"",
+    "dev": "concurrently -k \"npm run build:watch\" \"npm run start:dev\" \"npm run sync\"",
     "start": "node /dist/app.js",
-    "start:dev": "nodemon --inspect=0.0.0.0:9229 dist/app.js",
+    "sync": "browser-sync start --proxy 'localhost:3000' -f 'dist/**/*' 'src/views/**/*' --port 5000 -b 'firefox' --reload-debounce 1000 --no-open",
+    "start:dev": "nodemon dist/app.js",
     "build": "tsc .",
     "build:watch": "tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,11 +16,11 @@
   "author": "LORDBABUINO",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^4.0.1",
     "ejs": "^2.6.1",
     "express": "^4.16.4"
   },
   "devDependencies": {
+    "concurrently": "^4.0.1",
     "@types/node": "^10.12.9"
   }
 }

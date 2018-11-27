@@ -1,8 +1,7 @@
 FROM node
-EXPOSE 3000 9229
+EXPOSE 3000 5000
 WORKDIR /home/app
 COPY ./web .
-RUN npm install -g nodemon typescript --save-dev
+RUN npm install -g --save-dev nodemon typescript browser-sync
 RUN npm install
-RUN npm cache clean --force
 CMD npm run dev
