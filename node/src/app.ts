@@ -9,4 +9,5 @@ routeNews(app)
 
 app.listen(3000, () => {
 	console.log('Servidor rodando com Express')
+	console.log('Servidor rodando com Express')
 })

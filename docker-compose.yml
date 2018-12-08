@@ -1,22 +1,33 @@
 version: "3.1"
 services:
-  web:
-    build: .
+  node:
+    build: node
     container_name: node_web
     env_file:
-      .env
+      node/.env
     depends_on:
-      - db
+      - mysql
     ports:
       - "3000:3000"
       - "5000:5000"
     volumes:
-        - ./web:/home/app
-  db:
-    image: mysql
+      - ./node:/home/app
+    networks:
+      - frontend
+      - backend
+  mysql:
+    build: mysql
     container_name: node_mysql
     command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
     env_file:
-      .env
+      mysql/.env
     volumes:
-      - ./db:/var/lib/mysql
+      - ./mysql/db:/var/lib/mysql
+    networks:
+      - backend
+networks:
+  frontend:
+  backend:
+    internal: true
