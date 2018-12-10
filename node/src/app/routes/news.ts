@@ -19,7 +19,7 @@ export const routeNews = (app: any) => {
 			try {
 				await connect()
 				const notices: object = await query('select * from notices')
-				res.send(notices)
+				res.render('news/news', {notices: notices})
 				await end()
 			} catch(error){
 				console.error(`${error.name}: ${error.message}`)
