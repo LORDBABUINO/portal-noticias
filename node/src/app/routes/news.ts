@@ -1,5 +1,5 @@
 import { dbConnection } from '../../config/dbConnection'
-export const routeNews = (app: any) => {
+const routeNews = (app: any) => {
 	const util = require('util')
 
 	app.get('/news', (req: any, res: any) => {
@@ -22,3 +22,4 @@ export const routeNews = (app: any) => {
 		getNoticiasFromDatabase()
 	})
 }
+module.exports = routeNews
