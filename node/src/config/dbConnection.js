@@ -1,4 +1,4 @@
-export const dbConnection: any = () => {
+export const dbConnection = () => {
 	return require('mysql').createConnection({
 		host: process.env.MYSQL_HOST,
 		user: process.env.MYSQL_USER,
