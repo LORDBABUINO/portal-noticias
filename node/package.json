@@ -2,7 +2,7 @@
   "name": "portal-noticias",
   "version": "1.0.0",
   "description": "",
-  "main": "noticias.js",
+  "main": "dist/app.js",
   "scripts": {
     "dev": "concurrently -k \"npm run build:watch\" \"npm run start:dev\" \"npm run sync\"",
     "start": "node dist/app.js",
