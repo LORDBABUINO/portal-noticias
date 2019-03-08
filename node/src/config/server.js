@@ -1,6 +1,7 @@
-export let app = require('express')()
-const consign = require('consign')
+import express from 'express'
+import consign from 'consign'
+export let app = express()
 
 app.set('view engine', 'ejs')
-app.set('views','./src/app/views');
+app.set('views','./src/app/views')
 consign().include('dist/app/routes').into(app)
