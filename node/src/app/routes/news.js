@@ -1,10 +1,10 @@
-import { dbConnection } from '../../config/dbConnection'
+import { MysqlConnection } from '../../config/MysqlConnection'
 const routeNews = (app) => {
 	const util = require('util')
 
 	app.get('/news', (req, res) => {
 
-		const connection = dbConnection()
+		const connection = MysqlConnection()
 		const connect		 = util.promisify(connection.connect.bind(connection))
 		const query			 = util.promisify(connection.query.bind(connection))
 		const end				 = util.promisify(connection.end.bind(connection))
