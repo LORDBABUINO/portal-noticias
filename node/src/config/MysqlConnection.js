@@ -9,7 +9,7 @@ export class MysqlConnection {
 			password: process.env.MYSQL_PASSWORD,
 			database: process.env.MYSQL_DATABASE
 		})
-	}
 
-	this.connect		 = util.promisify(this._connection.connect.bind(connection))
+		this.connect = util.promisify(this._connection.connect.bind(this._connection))
+	}
 }
