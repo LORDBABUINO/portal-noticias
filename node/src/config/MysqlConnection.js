@@ -10,6 +10,7 @@ export class MysqlConnection {
 			database: process.env.MYSQL_DATABASE
 		})
 
-		this.connect = util.promisify(this._connection.connect.bind(this._connection))
+		this.connect	= util.promisify(this._connection.connect.bind(this._connection))
+		this.end			= util.promisify(this._connection.end.bind(this._connection))
 	}
 }
