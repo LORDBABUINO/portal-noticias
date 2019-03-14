@@ -1,9 +1,8 @@
-import { MysqlConnection } from '../../config/MysqlConnection'
 const routeNews = (app) => {
 
 	app.get('/news', (req, res) => {
 
-		const connection = new MysqlConnection()
+		const connection = new app.dist.config.MysqlConnection.MysqlConnection()
 
 		const getNoticiasFromDatabase = async () => {
 			try {
