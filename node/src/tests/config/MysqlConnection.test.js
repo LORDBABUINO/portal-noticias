@@ -6,7 +6,8 @@ const CREATION_QUERY = 'CREATE TABLE test_table( \
 )'
 const REMOVAL_QUERY = 'DROP TABLE test_table'
 
-describe('MysqlConnection', () => {
+describe('MysqlConnection', function () {
+	this.timeout(Infinity)
 	let connection
 
 	beforeEach(function(){
