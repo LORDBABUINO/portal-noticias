@@ -11,6 +11,7 @@ export class MysqlConnection {
 		})
 
 		this.connect	= util.promisify(this._connection.connect.bind(this._connection))
+		this.query		= util.promisify(this._connection.query.bind(this._connection))
 		this.end			= util.promisify(this._connection.end.bind(this._connection))
 	}
 }
