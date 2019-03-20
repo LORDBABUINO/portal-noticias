@@ -1,4 +1,4 @@
-import assert from 'assert'
+import { doesNotReject } from 'assert'
 import { MysqlConnection } from '../../config/MysqlConnection'
 
 const CREATION_QUERY = 'CREATE TABLE test_table( \
@@ -15,11 +15,11 @@ describe('MysqlConnection', function () {
 	})
 
 	it('should connect', async () => {
-		await assert.doesNotReject(connection.connect)
+		await doesNotReject(connection.connect)
 	})
 
 	it('should execute query', async () => {
-		await assert.doesNotReject(async () => {
+		await doesNotReject(async () => {
 			await connection.query(CREATION_QUERY)
 			await connection.query(REMOVAL_QUERY)
 		})
@@ -27,6 +27,6 @@ describe('MysqlConnection', function () {
 
 	it('should end connection', async () => {
 		await connection.connect()
-		await assert.doesNotReject(connection.end)
+		await doesNotReject(connection.end)
 	})
 })
